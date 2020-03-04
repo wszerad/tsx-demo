@@ -1,20 +1,16 @@
 {
 	"compilerOptions": {
+		"outDir": "./dist",
+		"baseUrl": "./",
 		"target": "esnext",
 		"module": "esnext",
 		"strict": true,
-		"jsx": "preserve",
+		"jsx": "react",
 		"importHelpers": true,
 		"moduleResolution": "node",
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"sourceMap": true,
-		"baseUrl": ".",
-		"paths": {
-			"@/*": [
-				"src/*"
-			]
-		},
 		"lib": [
 			"esnext",
 			"dom",
@@ -24,10 +20,10 @@
 	},
 	"include": [
 		"src/**/*.ts",
-		"src/**/*.tsx",
-		"src/**/*.vue",
+		"src/**/*.tsx"
 	],
 	"exclude": [
-		"node_modules"
+		"node_modules",
+		"dist"
 	]
 }

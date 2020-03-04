@@ -1,5 +1,4 @@
 const path = require('path')
-const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = (env = {}) => ({
@@ -11,7 +10,7 @@ module.exports = (env = {}) => ({
 		publicPath: '/dist/'
 	},
 	resolve: {
-		extensions: ['.ts', '.js', '.vue', '.json'],
+		extensions: ['.tsx', '.ts', '.js', '.json'],
 		alias: {
 			// this isn't technically needed, since the default `vue` entry for bundlers
 			// is a simple `export * from '@vue/runtime-dom`. However having this
@@ -23,16 +22,9 @@ module.exports = (env = {}) => ({
 	module: {
 		rules: [
 			{
-				test: /\.vue$/,
-				use: 'vue-loader'
-			},
-			{
-				test: /\.ts$/,
+				test: /\.ts(x)?$/,
 				exclude: /node_modules/,
-				loader: "ts-loader",
-				options: {
-					appendTsSuffixTo: [/\.vue$/]
-				}
+				loader: "ts-loader"
 			},
 			{
 				test: /\.png$/,
@@ -54,7 +46,6 @@ module.exports = (env = {}) => ({
 		]
 	},
 	plugins: [
-		new VueLoaderPlugin(),
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
 		})
